@@ -1,0 +1,96 @@
+/*
+ * Ferretería design tokens — three layers (see DESIGN.md).
+ * 1 primitives → 2 semantic roles → 3 component tokens.
+ * `--brand*` and `--font-display` are set at run time from the store's branding.
+ */
+:root {
+  /* 1 · Primitives — Plano */
+  --fe-blueprint: #1F4E8C;
+  --fe-blueprint-deep: #173B6B;
+  --fe-blueprint-lift: #285A9C;
+  --fe-blueprint-pale: #C9D8EC;
+  --fe-steel: #59626B;
+  --fe-concrete: #EDECE8;
+  --fe-concrete-deep: #E2E0DA;
+  --fe-white: #FFFFFF;
+  --fe-orange: #E8641E;
+  --fe-orange-text: #B04310;
+  --fe-ink: #1F252B;
+  --fe-red: #B3261E;
+
+  /* 2 · Semantic */
+  --surface: var(--fe-concrete);
+  --surface-quiet: var(--fe-concrete-deep);
+  --surface-raised: var(--fe-white);
+  --surface-deep: var(--fe-blueprint);
+  --surface-deep-raised: var(--fe-blueprint-lift);
+  --ink: var(--fe-ink);
+  --ink-soft: var(--fe-steel);
+  --ink-on-deep: var(--fe-white);
+  --ink-on-deep-soft: var(--fe-blueprint-pale);
+  --heading: var(--fe-ink);
+  --rule: rgb(31 37 43 / 0.14);
+  --rule-strong: rgb(31 37 43 / 0.32);
+  --rule-on-deep: rgb(255 255 255 / 0.22);
+  --accent: var(--brand, var(--fe-orange));
+  --accent-ink: var(--brand-ink, var(--fe-ink));
+  --accent-text: var(--brand-text, var(--fe-orange-text));
+  --accent-2: var(--brand-2, var(--fe-blueprint));
+  --accent-2-ink: var(--brand-2-ink, var(--fe-white));
+  --offer: var(--fe-red);
+  --offer-ink: var(--fe-white);
+  --danger: var(--fe-red);
+  --success: #2E7D4F;
+  --focus: var(--fe-blueprint);
+  --focus-on-deep: var(--fe-white);
+  --scrim: rgb(15 23 33 / 0.55);
+
+  /* 3 · Component */
+  --font-display: "Archivo", "Noto Sans", system-ui, sans-serif;
+  --font-text: "Archivo", "Noto Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --display-stretch: 125%;
+  --radius-frame: 0.625rem;
+  --radius-control: 0.375rem;
+  /* Blueprint paper: minor and major grid lines. */
+  --grid-minor: rgb(255 255 255 / 0.07);
+  --grid-major: rgb(255 255 255 / 0.15);
+  /* The same grid, drawn faintly on concrete. */
+  --paper-minor: rgb(31 78 140 / 0.05);
+  --paper-major: rgb(31 78 140 / 0.11);
+  --drafting: var(--fe-blueprint);
+  --shadow-soft: 0 1px 2px rgb(31 37 43 / 0.08), 0 10px 24px -16px rgb(31 37 43 / 0.35);
+  --shadow-lift: 0 2px 4px rgb(31 37 43 / 0.1), 0 22px 40px -20px rgb(31 37 43 / 0.45);
+  --tap: 2.75rem;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --max: 78rem;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.5, 0, 0.75, 0);
+  --dur-enter: 240ms;
+  --dur-exit: 160ms;
+}
+
+/* After hours: the blueprint at night, steel text, orange stays the action. */
+:root[data-color-scheme='dark'] {
+  --surface: #121820;
+  --surface-quiet: #18212C;
+  --surface-raised: #1C2531;
+  --surface-deep: #0E2546;
+  --surface-deep-raised: #163564;
+  --ink: #E8ECF1;
+  --ink-soft: #A9B4C0;
+  --ink-on-deep: #F3F6F9;
+  --ink-on-deep-soft: #B9C8DC;
+  --heading: #F3F6F9;
+  --rule: rgb(232 236 241 / 0.16);
+  --rule-strong: rgb(232 236 241 / 0.34);
+  --offer: #FF8A80;
+  --offer-ink: #121820;
+  --danger: #FF8A80;
+  --success: #7FD1A2;
+  --focus: #F08A4B;
+  --paper-minor: rgb(201 216 236 / 0.04);
+  --paper-major: rgb(201 216 236 / 0.08);
+  --drafting: #8FB2DD;
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 24px -16px rgb(0 0 0 / 0.7);
+  --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.45), 0 22px 40px -20px rgb(0 0 0 / 0.8);
+}
