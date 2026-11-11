@@ -19,7 +19,7 @@ export function ProductRow({ item, category, headingLevel = 'h3' }: { item: Cata
   const Heading = headingLevel;
   const available = isPurchasable(item);
   return (
-    <article className="group relative grid grid-cols-[4.25rem_minmax(0,1fr)] items-center gap-x-4 gap-y-2 py-3.5 sm:grid-cols-[5rem_minmax(0,1fr)_auto] lg:grid-cols-[5rem_minmax(0,1fr)_9.5rem_auto]">
+    <article className="group relative has-[a:focus-visible]:outline has-[a:focus-visible]:outline-[3px] has-[a:focus-visible]:outline-offset-2 has-[a:focus-visible]:outline-[color:var(--focus)] grid grid-cols-[4.25rem_minmax(0,1fr)] items-center gap-x-4 gap-y-2 py-3.5 sm:grid-cols-[5rem_minmax(0,1fr)_auto] lg:grid-cols-[5rem_minmax(0,1fr)_9.5rem_auto]">
       <div className={`frame row-span-2 aspect-square bg-surface-quiet sm:row-span-1 ${available ? '' : 'grayscale'}`}>
         <StoreImage src={item.imageUrl} alt="" sizes="5rem" maxWidth={240} fallback={<Placeholder />} />
       </div>

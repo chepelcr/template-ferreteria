@@ -65,7 +65,7 @@ export default function Home() {
           <div className="relative md:col-span-5">
             <LazyScene
               load={loadBolt}
-              className="mx-auto aspect-square w-[min(26rem,82vw)] text-ink-on-deep"
+              className="mx-auto aspect-square w-[min(26rem,82vw)] max-w-full text-ink-on-deep"
               fallback={<BoltDrawing className="h-full w-full" />}
             />
             {home.hero.image && (
@@ -150,14 +150,14 @@ export default function Home() {
         <section className="page pt-20">
           <ul className="grid overflow-hidden rounded-frame bg-surface-raised ring-1 ring-[color:var(--rule)] md:grid-cols-3">
             {home.benefits.map((benefit) => (
-              <li key={benefit.title} className="flex gap-4 border-b border-rule p-6 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0">
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-[var(--radius-control)] bg-[color:var(--fe-blueprint)] text-white">
-                  <CmsIcon icon={benefit.icon} className="h-5 w-5" strokeWidth={1.9} />
-                </span>
-                <div>
-                  <h3 className="font-text text-lg font-bold [font-stretch:100%] text-heading">{benefit.title}</h3>
-                  {benefit.description && <p className="mt-1 text-ink-soft">{benefit.description}</p>}
+              <li key={benefit.title} className="flex flex-col gap-3 border-b border-rule p-6 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0">
+                <div className="flex items-center gap-3">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-[var(--radius-control)] bg-[color:var(--fe-blueprint)] text-white">
+                    <CmsIcon icon={benefit.icon} className="h-5 w-5" strokeWidth={1.9} />
+                  </span>
+                  <h3 className="min-w-0 font-text text-lg font-bold [font-stretch:100%] text-heading">{benefit.title}</h3>
                 </div>
+                {benefit.description && <p className="mt-1 text-ink-soft">{benefit.description}</p>}
               </li>
             ))}
           </ul>

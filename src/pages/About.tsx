@@ -18,7 +18,7 @@ export default function About() {
         <div className={about.hero.image ? 'md:col-span-7' : 'md:col-span-10'}>
           {cms.isLoading ? (
             <div aria-hidden="true" className="flex flex-col gap-3">
-              <div className="skeleton h-14 w-64" />
+              <div className="skeleton h-14 w-64 max-w-full" />
               <div className="skeleton h-5 w-80 max-w-full" />
             </div>
           ) : cms.isError ? (
@@ -32,7 +32,7 @@ export default function About() {
         </div>
         {about.hero.image && (
           <div className="md:col-span-5">
-            <div className="drafted mx-auto w-[min(30rem,88vw)]">
+            <div className="drafted mx-auto w-[min(30rem,88vw)] max-w-full">
               <div className="frame aspect-[4/3] bg-surface-quiet">
                 <StoreImage src={about.hero.image} alt="" priority sizes="(min-width: 768px) 30rem, 88vw" maxWidth={1100} fallback={<Placeholder />} />
               </div>
@@ -66,10 +66,12 @@ export default function About() {
             <ul className="grid gap-4 md:grid-cols-3 md:gap-6">
               {about.values.items.map((value) => (
                 <li key={value.title} className="flex flex-col gap-3 rounded-frame bg-surface-raised p-7 ring-1 ring-[color:var(--rule)]">
-                  <span className="grid h-11 w-11 place-items-center rounded-[var(--radius-control)] bg-[color:var(--fe-blueprint)] text-white">
-                    <CmsIcon icon={value.icon} className="h-5 w-5" strokeWidth={1.8} />
-                  </span>
-                  <h3 className="font-text text-lg font-bold [font-stretch:100%] text-heading">{value.title}</h3>
+                  <div className="flex items-center gap-3">
+                    <span className="grid h-11 w-11 place-items-center rounded-[var(--radius-control)] bg-[color:var(--fe-blueprint)] text-white shrink-0">
+                      <CmsIcon icon={value.icon} className="h-5 w-5" strokeWidth={1.8} />
+                    </span>
+                    <h3 className="font-text text-lg font-bold [font-stretch:100%] text-heading min-w-0">{value.title}</h3>
+                  </div>
                   {value.description && <p className="text-ink-soft">{value.description}</p>}
                 </li>
               ))}
